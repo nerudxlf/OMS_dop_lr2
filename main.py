@@ -94,12 +94,12 @@ def community_leading_eigenvector_plot(g: object) -> dict:
 def main():
     g = ig.Graph.Read_Ncol("facebook_combined.txt",
                            directed=True).as_undirected()
-    # community_walktrap_plot(g)
-    # community_label_propagation_plot(g)
+    community_walktrap_plot(g)
+    community_label_propagation_plot(g)
     community_edge_betweenness_plot(g)
-    # community_spinglass_plot(g)
-    # community_fastgreedy_plot(g)
-    # ommunity_leading_eigenvector_plot(g)
+    community_spinglass_plot(g)
+    community_fastgreedy_plot(g)
+    ommunity_leading_eigenvector_plot(g)
 
 
 if __name__ == '__main__':
