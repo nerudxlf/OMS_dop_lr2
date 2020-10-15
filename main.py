@@ -11,7 +11,8 @@ def community_walktrap_plot(g: object) -> dict:
     max_size = max(clust.sizes())
     len_clust = len(clust.sizes())
     modularity = clust.recalculate_modularity()
-    ig.plot(clust, mark_groups=True)
+    ig.plot(wtrap) # draw dendogram
+    ig.plot(clust, mark_groups=True) # draw graph
     return {
         "размер максимального сообщества": max_size,
         "число сообществ": len_clust,
@@ -27,7 +28,7 @@ def community_label_propagation_plot(g: object) -> dict:
     max_size = max(label_prop.sizes())
     len_clust = len(label_prop.sizes())
     modularity = label_prop.recalculate_modularity()
-    ig.plot(label_prop, mark_groups=True)
+    ig.plot(label_prop, mark_groups=True) # draw graph
     return {
         "размер максимального сообщества": max_size,
         "число сообществ": len_clust,
@@ -66,7 +67,8 @@ def community_fastgreedy_plot(g: object) -> dict:
     max_size = max(clust.sizes())
     len_clust = len(clust.sizes())
     modularity = clust.recalculate_modularity()
-    ig.plot(clust, mark_groups=True)
+    ig.plot(fastgreedy) # draw dendogram
+    ig.plot(clust, mark_groups=True) # draw graph
     return {
         "размер максимального сообщества": max_size,
         "число сообществ": len_clust,
@@ -94,12 +96,18 @@ def community_leading_eigenvector_plot(g: object) -> dict:
 def main():
     g = ig.Graph.Read_Ncol("facebook_combined.txt",
                            directed=True).as_undirected()
-    community_walktrap_plot(g)
-    community_label_propagation_plot(g)
-    community_edge_betweenness_plot(g)
-    community_spinglass_plot(g)
-    community_fastgreedy_plot(g)
-    ommunity_leading_eigenvector_plot(g)
+    # print("walktrap:\n")
+    # print(community_walktrap_plot(g))
+    # print("label propagation:\n") 
+    # print(community_label_propagation_plot(g))
+    # print("edge betweeness:\n")
+    # print(community_edge_betweenness_plot(g))
+    # print("spinglass_plot:\n") 
+    # print(community_spinglass_plot(g))
+    # print("fastgreedy:\n")
+    # print(community_fastgreedy_plot(g))
+    # print("leading eigenvector:\n")
+    # print(community_leading_eigenvector_plot(g))
 
 
 if __name__ == '__main__':
